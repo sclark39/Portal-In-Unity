@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR;
 
 public class PortalTextureSetup : MonoBehaviour {
 
@@ -23,8 +24,10 @@ public class PortalTextureSetup : MonoBehaviour {
 		{
 			cameraB.targetTexture.Release();
 		}
+		Debug.Log( XRSettings.eyeTextureWidth + ", " + XRSettings.eyeTextureHeight);
+
 		//cameraB.targetTexture = new RenderTexture(Screen.width, Screen.height, 24);
-		cameraB.targetTexture = new RenderTexture( 1080, 1200, 24 );
+		cameraB.targetTexture = new RenderTexture( XRSettings.eyeTextureWidth, XRSettings.eyeTextureHeight, 24 );
 		cameraMatB.mainTexture = cameraB.targetTexture;
 	}
 	
